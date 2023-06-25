@@ -37,6 +37,7 @@ obj/
 *.dll
 *.swp
 *.orig
+*.cmake
 symsrv.yes
 ipch/
 renderdoc/driver/vulkan/renderdoc_capture.json
