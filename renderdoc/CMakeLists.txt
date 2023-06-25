@@ -459,7 +459,7 @@ set(data
 
 set(data_objects)
 
-if(UNIX)
+if(UNIX AND NOT ANDROID)
     # If we're cross-compiling, include-bin will get built for the target and we
     # then can't execute it. Instead, we force calling c++ (which we can safely
     # assume is present) directly to build the binary
