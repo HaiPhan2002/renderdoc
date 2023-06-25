@@ -459,13 +459,14 @@ set(data
 
 set(data_objects)
 
-if(UNIX AND NOT ANDROID)
+if(UNIX)
     # If we're cross-compiling, include-bin will get built for the target and we
     # then can't execute it. Instead, we force calling c++ (which we can safely
     # assume is present) directly to build the binary
 
     if(CMAKE_CROSSCOMPILING)
-        set(HOST_NATIVE_CPP_COMPILER c++ CACHE STRING "Command to run to compile a .cpp into an executable. Default is just c++")
+        set(HOST_NATIVE_CPP_COMPILER cl.exe CACHE STRING "Command to run to compile a .cpp into an executable. Default is just c++")
+        # I cheat to use cl.exe to build the include-bin executable. So we need to run on Developer Command Prompt for VS
 
         add_custom_command(OUTPUT ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/include-bin
             WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
