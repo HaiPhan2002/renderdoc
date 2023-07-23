@@ -393,6 +393,11 @@ RDResult InstallRenderDocServer(const rdcstr &deviceID)
 
   // use the first ABI for searching
   rdcstr apk = GetRenderDocPackageForABI(abis[0]);
+  for(ABI abi : abis)
+  {
+    apk = GetRenderDocPackageForABI(abi);
+  }
+
   rdcstr apksFolder;
 
   for(uint32_t i = 0; i < paths.size(); i++)

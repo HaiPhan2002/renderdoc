@@ -11,6 +11,8 @@ endif()
 
 # Configure some stuff that needs to be set really early
 if(BUILD_ANDROID)
+    # Building for Android requires at least CMake 3.4.1
+    cmake_minimum_required(VERSION 3.4.1)
     if(NOT DEFINED ENV{JAVA_HOME})
         message(FATAL_ERROR "JAVA_HOME environment variable must be defined for Android build")
     endif()
@@ -81,9 +83,9 @@ if(BUILD_ANDROID)
 endif()
 
 # disallow in-source builds because we have a top-level wrapper Makefile
-if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
-    message(FATAL_ERROR "In-source builds not allowed")
-endif()
+# if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
+#     message(FATAL_ERROR "In-source builds not allowed")
+# endif()
 
 # version setting variables. See renderdoc/api/replay/version.h
 
